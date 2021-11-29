@@ -2,6 +2,7 @@ class OrderController < ApplicationController
   def create
   end
 
-  def show
+  def index
+    @orders = Order.all
   end
 end
