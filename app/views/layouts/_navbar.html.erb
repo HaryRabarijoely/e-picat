@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">e-PiCat</a>
+    <%= link_to "e-PiCat", items_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,19 +8,14 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Accueil
-            <span class="visually-hidden">(current)</span>
-          </a>
+          <%= link_to "Tous les produits", items_path, class: "nav-link active" %>
         </li>
+        <!-- TODO : Change the path of this "About" page -->
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <%= link_to "À propos de nous", items_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
+        <!-- / -->
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compte</a>
           <div class="dropdown-menu">
@@ -29,18 +24,20 @@
               <%= link_to "Mes commandes", user_path(current_user.id) ,class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
               <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "dropdown-item"%>
+          </div>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Mon panier", cart_path(current_user.id) %>
+            <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i> Mon panier</a>
+          </li>
             <% else %>
               <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
-            <% end %>
           </div>
-        </li>
+          </li>
+            <% end %>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
