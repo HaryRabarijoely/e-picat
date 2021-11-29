@@ -7,6 +7,7 @@ gem 'faker'
 gem 'stripe'
 gem 'table_print'
 gem 'dotenv'
+gem "font-awesome-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
