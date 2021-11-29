@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :items
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'items#index' 
+  resources :items, only: [:index, :show]
+  resources :carts, only: [:create, :update, :destroy, :show], path: 'mon_panier'
+  resources :orders, only: [:create, :show]
+  devise_for :users, path: 'mon_profil'
 end
