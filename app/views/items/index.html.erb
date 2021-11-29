@@ -1,28 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
-        <td><%= item.image_url %></td>
-        <td><%= link_to 'Show', item %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<div class="row card-deck justify-content-center">
+  <% @items.each do |item| %>
+    <div class="col-sm-5 mx-2 my-4">
+      <div class="card">
+        <img class="card-img-top" src="<%= item.image_url %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%=item.title%></h5>
+          <p class="card-text"><%= item.description %></p>
+          <p class="card-text">Prix : <%=item.price%>€</p>
+          <a><%= link_to "Details", item_path(item.id), class: "btn btn-primary" %></a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br/><br/><br/>
