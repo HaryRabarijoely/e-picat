@@ -20,15 +20,14 @@
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compte</a>
           <div class="dropdown-menu">
             <% if user_signed_in? %>
-              <%= link_to "Mon profil", user_path(current_user.id) ,class: "dropdown-item"%>
-              <%= link_to "Mes commandes", user_path(current_user.id) ,class: "dropdown-item"%>
+              <%= link_to "Mon profil", edit_user_registration_path(current_user) ,class: "dropdown-item"%>
+              <%= link_to "Mes commandes", order_index_path(current_user) ,class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
               <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "dropdown-item"%>
           </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Mon panier", cart_path(current_user.id) %>
-            <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i> Mon panier</a>
+            <a class="nav-link" href="<%= cart_path(current_user) %>"><i class="fas fa-shopping-basket"></i> Mon panier</a>
           </li>
             <% else %>
               <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
