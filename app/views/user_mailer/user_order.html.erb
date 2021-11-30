@@ -1,0 +1,10 @@
+
+<h1>Merci pour ta commande <%= @order.user.email %></h1>
+<ul>
+    <% @order.items.each do |item|%>
+        <li><%= item.title %>, <%= item.price %> €, à télécharger <a href="<%= item.image_url %>">en cliquant ici</a></li>
+    <% end %>
+</ul>
+
+<P>Total: <% @order.price %></P>
+<p> À très vite sur e-PiCat  ! 
