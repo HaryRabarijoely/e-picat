@@ -1,7 +1,7 @@
 var stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key] %>');
 stripe.redirectToCheckout({
-  sessionId: '<%= @session.id %>'
-  }).then(function(result){
-     console.log(result.error.message);
-  });
+   sessionId: '<%= @session.id %>'
+}).then(function(result){
+   console.log(result.error.message);
+});
 
