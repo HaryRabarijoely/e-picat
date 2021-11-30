@@ -1,4 +1,14 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1>Exemple de panier</h1>
 
+<p>Total = <%= @cart.price %> €</p>
 
+<% unless @cart.items.empty? %>
+<ul>
+<% @cart.items.each do |item| %>
+<li><%= item.title %>
+<%= link_to " Supprimer", cart_path(item), method: :delete %>
+</li>
+
+<% end %>
+</ul>
+<% end %>
