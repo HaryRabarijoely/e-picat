@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<%= render "layouts/banner"%>
 
+<main class="container">
+  <div class="row row-cols-4 row-cols-md-3 col-sm-12 p-md-0 m-md-0 d-flex justify-content-center">
 
-<div class="row card-deck justify-content-center">
-  <% @items.each do |item| %>
-    <div class="col-sm-5 mx-2 my-4">
-      <div class="card" size="50">
-        <img class="card-img-top" src="<%= item.image_url%>" height="500"  alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><%=item.title%></h5>
-          <p class="card-text"><%= item.description %></p>
-          <p class="card-text">Prix : <%=item.price%>€</p>
-          <a><%= link_to "Details", item_path(item.id), class: "btn btn-primary" %></a>
+    <% @items.each do |item| %>
+      <div class="col-sm-12 col-12 col-md-4">
+        <div class="card border-secondary mb-4 card-index" size="50">
+          <img class="card-img-top" src="<%= item.image_url%>" height="500"  alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><%=item.title%></h4>
+
+            <p class="card-text">Prix : <%=item.price%>€</p>
+            <a><%= link_to "Details", item_path(item.id), class: "btn btn-primary" %></a>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
-<br/><br/><br/>
+    <% end %>
+  </div>
+
+</main>
