@@ -2,21 +2,22 @@
 
 
 
-
-<div class="container d-inline-flex">
-  <div class="card mb-3">
-    <div class="media d-flex justify-content-center">
-      <a href="<%= @item.image_url %>" class="d-block">
-        <img src="<%= @item.image_url %>" alt class="img-fluid" style="max-height: 300px">
-        </a>
-        <div class="media-body p-4 p-md-5">
-          <h3><%= @item.title %></h3>
-          <li><%= @item.description %></li>
-        <a href="#" class="btn btn-outline-secondary">
-          <strong><%= @item.price %> €</strong>&nbsp; +</a>
+<div class="d-flex justify-content-center align-items-center flex-column text-center col-12" style="height:70vh">
+    <div class="card border-secondary mb-3">
+      <div class="media d-flex justify-content-center">
+        <a href="<%= @item.image_url %>" class="d-block">
+          <img src="<%= @item.image_url %>" alt class="img-fluid" style="max-height: 300px">
+          </a>
+          <div class="media-body d-flex flex-column justify-content-between p-4 p-md-5">
+            <h3><%= @item.title %></h3>
+            <em><%= @item.description %></em>
+            <br>
+            <strong><%= @item.price %> <i class="fab fa-bitcoin"></i></strong>
+            <%= link_to "Passer commande", new_charge_path(total: @item.price ), class: "btn btn-outline-primary my-3", remote: true %>
+        </div>
       </div>
     </div>
-  </div>
+  <br>
+  
+  <%= link_to 'Back', items_path %>
 </div>
-<br>
-<%= link_to 'Back', items_path %>
