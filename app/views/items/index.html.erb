@@ -4,8 +4,8 @@
 <div class="row card-deck justify-content-center">
   <% @items.each do |item| %>
     <div class="col-sm-5 mx-2 my-4">
-      <div class="card">
-        <img class="card-img-top" src="<%= item.image_url %>" alt="Card image cap">
+      <div class="card" size="50">
+        <img class="card-img-top" src="<%= item.image_url%>" height="500"  alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><%=item.title%></h5>
           <p class="card-text"><%= item.description %></p>
