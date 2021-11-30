@@ -3,12 +3,13 @@
 <p>Total = <%= @cart.price %> €</p>
 
 <% unless @cart.items.empty? %>
-<ul>
-<% @cart.items.each do |item| %>
-<li><%= item.title %>
-<%= link_to " Supprimer", cart_path(item), method: :delete %>
-</li>
+    <ul>
+        <% @cart.items.each do |item| %>
+        <li><%= item.title %>
+        <%= link_to " Supprimer", cart_path(item), method: :delete %>
+        </li>
 
+    <% end %>
+    </ul>
 <% end %>
-</ul>
-<% end %>
+<%= button_to "Passer commande", checkout_create_path(total: @cart.price), class: "btn btn-outline-primary my-3", remote: true %>

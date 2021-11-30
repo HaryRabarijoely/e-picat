@@ -1,4 +1,11 @@
 class CheckoutController < ApplicationController
+  
+  def new
+     @cart = Cart.find(params[:cart_id])
+  end
+  
+
+  
   def create
     @user = current_user
     @total = params[:total].to_d
@@ -8,7 +15,7 @@ class CheckoutController < ApplicationController
       line_items: [
         {
           name: 'Rails Stripe Checkout',
-          amount: (@total).to_i,
+          amount: (@total*100).to_i,
           currency: 'eur',
           quantity: 1
         },
@@ -18,7 +25,6 @@ class CheckoutController < ApplicationController
     )
     
     respond_to do |format|
-      
       format.js
     end
   end

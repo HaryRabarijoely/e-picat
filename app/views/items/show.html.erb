@@ -2,17 +2,19 @@
 
 
 
-
-<div class="container d-inline-flex">
-  <div class="card mb-3">
-    <div class="media d-flex justify-content-center">
-      <a href="<%= @item.image_url %>" class="d-block">
-        <img src="<%= @item.image_url %>" alt class="img-fluid" style="max-height: 300px">
-        </a>
-        <div class="media-body p-4 p-md-5">
-          <h3><%= @item.title %></h3>
-          <li><%= @item.description %></li>
-        <%= link_to "#{@item.price} €", cart_path(@item), method: :put, class: "btn btn-outline-secondary" %>
+<div class="d-flex justify-content-center align-items-center flex-column text-center col-12" style="height:70vh">
+    <div class="card border-secondary mb-3">
+      <div class="media d-flex justify-content-center">
+        <a href="<%= @item.image_url %>" class="d-block">
+          <img src="<%= @item.image_url %>" alt class="img-fluid" style="max-height: 300px">
+          </a>
+          <div class="media-body d-flex flex-column justify-content-between p-4 p-md-5">
+            <h3><%= @item.title %></h3>
+            <em><%= @item.description %></em>
+            <br>
+            <strong><%= @item.price %> <i class="fab fa-bitcoin"></i></strong>
+            <%= link_to "Ajouter à mon panier", cart_path(@item), method: :put, class: "btn btn-outline-primary my-3" %>
+        </div>
       </div>
     </div>
   <br>
