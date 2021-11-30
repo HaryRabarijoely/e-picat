@@ -12,8 +12,7 @@
         <div class="media-body p-4 p-md-5">
           <h3><%= @item.title %></h3>
           <li><%= @item.description %></li>
-        <a href="#" class="btn btn-outline-secondary">
-          <strong><%= @item.price %> €</strong>&nbsp; +</a>
+        <%= link_to "#{@item.price} €", cart_path(@item), method: :put, class: "btn btn-outline-secondary" %>
       </div>
     </div>
   </div>
