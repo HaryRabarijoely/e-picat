@@ -9,6 +9,7 @@ class CartsController < ApplicationController
     cart.items << item
     cart.save
     cart.price_update
+    redirect_to cart_path
   end
 
   # Remove an element in the current_user's cart
@@ -17,6 +18,7 @@ class CartsController < ApplicationController
     item = Item.find(params[:id])
     cart.items.delete(item)
     cart.price_update
+    redirect_to cart_path
   end
 
   def show
