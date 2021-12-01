@@ -20,7 +20,7 @@
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compte</a>
           <div class="dropdown-menu">
             <% if user_signed_in? %>
-              <%= link_to "Mon profil", edit_user_registration_path(current_user) ,class: "dropdown-item"%>
+              <%= link_to "Mon profil", order_index_path(current_user) ,class: "dropdown-item"%>
               <%= link_to "Mes commandes", order_index_path(current_user) ,class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
               <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "dropdown-item"%>
