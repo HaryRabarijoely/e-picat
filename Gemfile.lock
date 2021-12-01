@@ -47,6 +47,22 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.537.0)
+    aws-sdk-core (3.124.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.525.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.52.0)
+      aws-sdk-core (~> 3, >= 3.122.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.109.0)
+      aws-sdk-core (~> 3, >= 3.122.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.4)
+    aws-sigv4 (1.4.0)
+      aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
@@ -87,6 +103,9 @@ GEM
       responders
       warden (~> 1.2.3)
     dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     faker (2.19.0)
@@ -99,6 +118,7 @@ GEM
     io-like (0.3.1)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
+    jmespath (1.4.0)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -117,9 +137,13 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -218,6 +242,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aws-sdk-s3
   better_errors
   bootsnap (>= 1.1.0)
   byebug
@@ -225,7 +250,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dotenv
+  dotenv-rails
   faker
   jbuilder (~> 2.5)
   letter_opener
