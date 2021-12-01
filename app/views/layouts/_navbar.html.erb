@@ -36,6 +36,9 @@
           </div>
           </li>
             <% end %>
+            <% if user_signed_in? && current_user.admin %>
+              <li><%= link_to 'Accès console administrateur', admin_root_path, class: "btn btn-outline-danger me-2 nav-link" %></li>
+            <% end  %>
       </ul>
     </div>
   </div>
