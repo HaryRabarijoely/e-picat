@@ -1,9 +1,6 @@
-
-
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 
 html, body, div, span, applet, object, iframe,
@@ -123,14 +120,14 @@ img {
   font-size: 2em;
   float: left;
 }
-.heading a.continue:link, .heading a.continue:visited {
+.heading a.continued:link, .heading a.continued:visited {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   letter-spacing: -.015em;
   font-size: .75em;
   padding: 1em;
   color: #fff;
-  background: btn-outline-primary;
+  background: #7fffd4;
   font-weight: bold;
   border-radius: 5px;
   float: right;
@@ -141,7 +138,7 @@ img {
   -o-transition: all 0.15s linear;
   transition: all 0.15fs linear;
 }
-.heading a.continue:after {
+.heading a.continued:after {
   content: "\276f";
   padding: .5em;
   position: relative;
@@ -152,10 +149,10 @@ img {
   -o-transition: all 0.15s linear;
   transition: all 0.15s linear;
 }
-.heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
+.heading a.continued:hover, .heading a.continued:focus, .heading a.continued:active {
   background: orange;
 }
-.heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
+.heading a.continued:hover:after, .heading a.continued:focus:after, .heading a.continued:active:after {
   right: -10px;
 }
 
@@ -170,9 +167,7 @@ img {
   padding: 1em 0;
   text-align: center;
 }
-.tableHead li.prodHeader {
-  text-align: left;
-}
+
 
 .cart {
   padding: 1em 0;
@@ -327,34 +322,9 @@ a.remove:hover {
   background: #f69679;
 }
 
-.btn:link, .btn:visited {
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  padding: 1em 3em;
-  color: #fff;
-  background: #7fffd4;
-  font-weight: bold;
-  border-radius: 5px;
-  float: right;
-  text-align: right;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -ms-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
-}
-.btn:after {
-  content: "\276f";
-  padding: .5em;
-  position: relative;
-  right: 0;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -ms-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
-}
+
+
+
 .btn:hover, .btn:focus, .btn:active {
   background: #f69679;
 }
@@ -440,7 +410,7 @@ a.remove:hover {
     width: 100%;
   }
 
-  a.btn.continue {
+  a.btn.continued {
     width: 100%;
     text-align: center;
   }
