@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'items#index' 
   resources :items,:path => "/NFT_cat"
   resources :carts,:path => "/cart", only: [:create, :update, :destroy, :show]
-  resources :order,:path => "/order_history"
+  resources :orders,:path => "/order_history"
   devise_for :users,:path => "/profile"
 
   scope '/checkout' do
