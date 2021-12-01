@@ -1,7 +1,7 @@
 <div class="wrap cf">
     <div class="heading cf">
       <h1>Mon panier</h1>
-      <a href="/" class="continue">Continue Shopping</a>
+      <a href="/" class="secondary btn">Continue Shopping</a>
     </div>
     <% unless @cart.items.empty? %>
       <div class="cart">
@@ -11,7 +11,7 @@
 
             <div class="infoWrap">
               <div class="cartSection">
-                <%= image_tag item.image_url, height: "50px;" %>
+
 
                 <h3><%= item.title %></h3>
 
@@ -22,7 +22,7 @@
                 <p><%= item.price %>€</p>
               </div>
               <div class="cartSection removeWrap">
-                <%= link_to 'x', cart_path(item), class: 'remove' %>
+                <%= link_to 'X', cart_path(item), method: :delete, class: 'remove' %>
 
               </div>
             </div>
