@@ -21,7 +21,7 @@
           <div class="dropdown-menu">
             <% if user_signed_in? %>
               <%= link_to "Mon profil",  edit_user_registration_path(current_user) ,class: "dropdown-item"%>
-              <%= link_to "Mes commandes", order_path(current_user) ,class: "dropdown-item"%>
+              <%= link_to "Mes commandes", orders_path(current_user) ,class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
               <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "dropdown-item"%>
           </div>
