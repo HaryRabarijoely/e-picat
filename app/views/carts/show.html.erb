@@ -1,34 +1,45 @@
-<div class="container mt-5">
-    <div class="card my-3 text-center card-center">
-      <h2 class="action-banner card-header">Mon panier</h2>
-        <% if @cart.items.length != 0 %>
-        <% end %>
+<div class="wrap cf">
+    <div class="heading cf">
+      <h1>Mon panier</h1>
+      <a href="/" class="continue">Continue Shopping</a>
+    </div>
+    <% unless @cart.items.empty? %>
+      <div class="cart">
+        <ul class="cartWrap">
         <% @cart.items.each do |item| %>
-        <hr>
-          <div class="card-body" >
-            <div class="float-left mr-5">
-                <span class="cart-image"><%= image_tag item.image_url, height: "150px;" %></span>
-            </div>
-            <div class="float-left mb-5 mr-5 text-left">
-              <h5 class="mb-4">Nom du Chat : <span class="card-text"><%= item.title %></span></h5>
-              <h5 class="mb-4">Prix de la Photo : <span class="card-text"><%= item.price %></span> €</h5>
-              <div class="cart-button float-left">
-                <%= link_to 'Supprimer', cart_path(item), method: :delete, class: "btn btn-danger float-left" %>
+          <li class="items odd">
+
+            <div class="infoWrap">
+              <div class="cartSection">
+                <%= image_tag item.image_url, height: "50px;" %>
+
+                <h3><%= item.title %></h3>
+
+
+              </div>
+
+              <div class="prodTotal cartSection">
+                <p><%= item.price %>€</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <%= link_to 'x', cart_path(item), class: 'remove' %>
+
               </div>
             </div>
-          </div>
-         <% end %>
-      </div>
-
-        <% if @cart.items.length != 0 %>
-          <div class="container mt-5">
-            <div class="card mt-2 mb-3 text-center card-center">
-              <strong><h2 class="mb-4 action-banner" >Total : <%= @cart.price %> €</h2></strong>
-              <p>Une fois le réglement effectué vous recevrez vos photos de chats directement sur votre email !</p>
-        <% else %>
-              <p> Votre panier est vide </p>
+          </li>
         <% end %>
-            </div>
-          </div>
-          
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="subtotal cf">
+        <ul>
+          <li class="totalRow final">
+            <strong><span class="label">Total</span></strong><p>Total = <%= @cart.price %> €</p>
+          </li>
+          <li class="totalRow">
+            <%= button_to "Passer commande", checkout_create_path(total: @cart.price), class: "btn btn-outline-primary my-3", remote: true %>
+            </li>
+        </ul>
+    </div>
 </div>
