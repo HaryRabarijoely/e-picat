@@ -6,7 +6,13 @@
     <% @items.each do |item| %>
       <div class="col-sm-12 col-12 col-md-4">
         <div class="card border-secondary mb-4 card-index" size="50">
-          <img class="card-img-top" src="<%= item.image_url%>" height="500"  alt="Card image cap">
+          <!-- Template à suivre pour afficher les images des produits -->
+          <%if item.picture.attached?%>
+            <%= image_tag item.picture, alt: item.title, class: "card-img-top", height: "500" %>
+          <%else%>
+            <p>=== Il n'y a pas de photo attachée au produit ===</p>
+          <%end%>
+          <!-- ////////// -->
           <div class="card-body">
             <h4 class="card-title"><%=item.title%></h4>
 
