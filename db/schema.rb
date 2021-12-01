@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_092323) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "price", precision: 6, scale: 2, default: "0.0"
+    t.decimal "price", precision: 6, scale: 2
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_092323) do
     t.string "title"
     t.text "description"
     t.string "image_url"
-    t.decimal "price", precision: 5, scale: 2, default: "0.0"
+    t.decimal "price", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_092323) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "price", precision: 6, scale: 2, default: "0.0"
+    t.decimal "price", precision: 6, scale: 2
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

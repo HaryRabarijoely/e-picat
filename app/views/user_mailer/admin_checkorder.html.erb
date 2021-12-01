@@ -1,0 +1,9 @@
+<h1>Voici le rapport de commande :<%= @order.id %></h1>
+<ul>
+    <% @order.items.each do |item|%>
+        <li><%= item.title %>, <%= item.price %> € pour cette image: <a href="<%= item.image_url %>"><%= item.title %></a></li>
+    <% end %>
+</ul>
+
+<P>Total: <% @order.price %></P>
+<p>Status: <%= @payment_intent.status %> </p>
