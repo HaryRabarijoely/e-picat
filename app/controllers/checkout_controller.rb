@@ -32,10 +32,29 @@ class CheckoutController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+    if create_order
+      current_user.cart.items.clear
+      current_user.cart.price_update
+      redirect_to orders_path
+    else
+      redirect_to cart_path
+    end
+
   end
 
   def cancel
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+  end
+
+  private
+
+  def create_order
+    cart = current_user.cart
+    order = Order.new
+    order.user = current_user
+    cart.items.each { |item| order.items << item }
+    order.price = cart.price
+    order.save
   end
 end
