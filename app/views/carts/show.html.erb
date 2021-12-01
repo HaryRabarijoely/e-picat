@@ -1,15 +1,45 @@
-<h1>Exemple de panier</h1>
-
-<p>Total = <%= @cart.price %> €</p>
-
-<% unless @cart.items.empty? %>
-    <ul>
+<div class="wrap cf">
+    <div class="heading cf">
+      <h1>Mon panier</h1>
+      <a href="/" class="secondary btn">Continue Shopping</a>
+    </div>
+    <% unless @cart.items.empty? %>
+      <div class="cart">
+        <ul class="cartWrap">
         <% @cart.items.each do |item| %>
-        <li><%= item.title %>
-        <%= link_to " Supprimer", cart_path(item), method: :delete %>
-        </li>
+          <li class="items odd">
 
+            <div class="infoWrap">
+              <div class="cartSection">
+
+
+                <h3><%= item.title %></h3>
+
+
+              </div>
+
+              <div class="prodTotal cartSection">
+                <p><%= item.price %>€</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <%= link_to 'X', cart_path(item), method: :delete, class: 'remove' %>
+
+              </div>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
-<% end %>
-<%= button_to "Passer commande", checkout_create_path(total: @cart.price), class: "btn btn-outline-primary my-3", remote: true %>
+
+    <div class="subtotal cf">
+        <ul>
+          <li class="totalRow final">
+            <strong><span class="label">Total</span></strong><p>Total = <%= @cart.price %> €</p>
+          </li>
+          <li class="totalRow">
+            <%= button_to "Passer commande", checkout_create_path(total: @cart.price), class: "btn btn-outline-primary my-3", remote: true %>
+            </li>
+        </ul>
+    </div>
+</div>
