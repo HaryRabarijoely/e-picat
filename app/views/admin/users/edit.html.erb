@@ -1,10 +1,17 @@
+<h2>Modification d'un utilisateur</h2>
+
 <%= form_for ([:admin, @user]) do |f| %>
+  <div class="card text-center" style="width: 22rem;">
+    <div class="card-body">
+
+      <h3>ID : <%= @user.id %></h3>
+      <%= label_tag 'Adresse mail' %><br />
+      <%= f.text_field :email %><br /><br />
+  
+      <%= label_tag 'Administrateur : ' %>
+      <%= f.check_box :admin %><br />
     
-        <%= label_tag 'Adresse mail' %><br />
-        <%= f.text_field :email %><br />
-    
-        <%= label_tag 'Admin' %><br />
-        <%= f.check_box :admin %>
-    
-        <button type="submit">Modifier</button>
+      <button type="submit" class="btn btn-primary mt-3">Modifier</button>
+    </div>
+  </div>
 <% end %>

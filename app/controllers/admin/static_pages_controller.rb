@@ -8,7 +8,7 @@ module Admin
 
     def is_admin?
       unless user_signed_in? && current_user.admin
-        flash[:danger] = 'Vous n\'avez pas la permission d\'accéder à cette page'
+        flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
         redirect_to root_path
       end
     end

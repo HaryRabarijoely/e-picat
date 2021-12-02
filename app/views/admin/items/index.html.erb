@@ -9,6 +9,7 @@
       <th scope="col">Prix</th>
       <th scope="col">Crée le</th>
       <th scope="col">Ventes</th>
+      <th scope="col">Dispo</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
       <th><%= item.price %></th>
       <th><%= item.created_at.strftime('%e %b %Y') %></th>
       <th><%= item.orders.count %></th>
+      <th><%= "O" if item.available %></th>
       <th><%= link_to 'Afficher', admin_item_path(item), class: 'btn btn-info btn-sm' %></th>
       <th><%= link_to 'Editer', edit_admin_item_path(item), class: 'btn btn-primary btn-sm' %></th>
       <th><%= link_to 'Supprimer', admin_item_path(item), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer cet item ?" }, class: 'btn btn-danger btn-sm'%></th>

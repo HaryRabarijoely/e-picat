@@ -1,7 +1,7 @@
 <%= form_with(model: item, local: true) do |form| %>
   <% if item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+      <h2><%= pluralize(item.errors.count, "error") %> interdit l'enregistrement de cet élément:</h2>
 
       <ul>
       <% item.errors.full_messages.each do |message| %>
