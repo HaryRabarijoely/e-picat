@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   get 'static_pages/Contact'
   get 'static_pages/Terms'
   root 'items#index' 
-  resources :items,:path => "/NFT_cat"
-  resources :carts,:path => "/cart", only: [:create, :update, :destroy, :show]
-  resources :orders,:path => "/order_history"
-  devise_for :users,:path => "/profile"
+  resources :items,:path => "/Catalogue_chat"
+  resources :carts,:path => "/Mon_Panier", only: [:create, :update, :destroy, :show]
+  resources :orders,:path => "/Mes_commandes"
+  devise_for :users,:path => "/Mon_Profil"
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
