@@ -35,8 +35,7 @@
     <div class="subtotal cf">
         <ul>
           <li class="totalRow final">
-            <strong><span class="label">Total</span></strong><p>Total = <%= @cart.price %> €</p>
-          </li>
+            <span class="label"><p>Total = <%= @cart.price %> €</p></span>
           <li class="totalRow">
             <%= button_to "Passer commande", checkout_create_path(total: @cart.price), class: "btn btn-outline-primary my-3", remote: true %>
             </li>
