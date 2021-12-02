@@ -12,15 +12,15 @@
     </tr>
   </thead>
   <tbody>
-  <% @orders.each do |order| %>
-      <tr>
-      <th><%= order.id %></th>
-      <th><%= order.created_at.strftime('%e %b %Y') %></th>
-      <th><%= order.user.id %></th>
-      <th><%= order.items.count %></th>
-      <th><%= order.price %></th>
-      <th><%= link_to 'Afficher', admin_order_path(order), class: 'btn btn-primary btn-sm' %></th>
-    </tr>
-  <% end %>
+    <% @orders.each do |order| %>
+        <tr>
+        <th><%= order.id %></th>
+        <th><%= order.created_at.strftime('%e %b %Y') %></th>
+        <th><%= order.user.id %></th>
+        <th><%= order.items.count %></th>
+        <th><%= order.price %></th>
+        <th><%= link_to 'Afficher', admin_order_path(order), class: 'btn btn-primary btn-sm' %></th>
+      </tr>
+    <% end %>
   </tbody>
 </table>

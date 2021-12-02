@@ -12,10 +12,10 @@ module Admin
 
     def create
       @item = Item.new(
-        title: params[:title],
-        description: params[:description],
-        price: params[:price],
-        available: params[:available]
+      title: params[:title],
+      description: params[:description],
+      price: params[:price],
+      available: params[:available]
       )
       if @item.save
         @item.picture.attach(params[:picture])
@@ -37,13 +37,13 @@ module Admin
 
     def update
       @item = Item.find(params[:id])
-        if @item.update!(item_params)
-          flash[:success] = "Le produit a bien été mis à jour."
-          redirect_to admin_items_path
-        else
-          flash[:warning] = "Il y a eu un problème lors de la mise à jour du produit"
-          render 'edit'
-        end
+      if @item.update!(item_params)
+        flash[:success] = "Le produit a bien été mis à jour."
+        redirect_to admin_items_path
+      else
+        flash[:warning] = "Il y a eu un problème lors de la mise à jour du produit"
+        render 'edit'
+      end
     end
     
     def destroy
@@ -70,5 +70,5 @@ module Admin
       end
     end
   end
-  end
+end
   
