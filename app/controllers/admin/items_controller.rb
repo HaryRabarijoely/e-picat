@@ -53,7 +53,7 @@ module Admin
     private
 
     def item_params
-      params.require(:item).permit(:title, :description, :price, :picture)
+      params.require(:item).permit(:title, :description, :price, :picture, :available)
     end
   
     def is_admin?

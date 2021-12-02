@@ -17,6 +17,9 @@
     <%= label_tag "Modifier l'image" %><br />
     <%= f.file_field :picture %><br />
 
+    <%= label_tag 'Dispo à la vente : ' %>
+    <%= f.check_box :available %><br />
+
     <button type="submit" class="btn btn-primary mt-3">Modifier</button>
 
     </div>
