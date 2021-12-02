@@ -3,7 +3,7 @@ Merci pour ta commande <%= @order.user.email %>
 ==========================================================
 
 <% @order.items.each do |item|%>
-    <%= item.title %>, <%= item.price %> €, <%= item.image_url %>
+    <%= item.title %>, <%= item.price %> €, <%= image_tag item.picture %>
 <% end %>
 
 Total: <% @order.price %>
