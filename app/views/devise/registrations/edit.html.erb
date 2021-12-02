@@ -1,47 +1,13 @@
-<!--<h2>Edit <%= resource_name.to_s.humanize %></h2>-->
 
-<!--<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="d-flex justify-content-center align-items-center text-center col-12 pt-5"> 
+  <h1>Mon profil<h1>
+</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<%= link_to "Back", :back %>
--->
+<%= render :partial => 'orders/order' %>
 
 <div class="d-flex justify-content-center align-items-center text-center col-12" style="height:70vh;">   
   <main class="form-signin">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2>Modifier des informations <%= resource_name.to_s.humanize %></h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <i class="fas fa-paw" style="font-size:40px"></i>
@@ -54,16 +20,16 @@
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="form-floating">
           <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
           <%= f.password_field :password, autocomplete: "new-password" %>
           <% if @minimum_password_length %>
             <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
+            <em><%= @minimum_password_length %> caractères minimum </em>
           <% end %>
         </div>
         </div>
@@ -77,16 +43,16 @@
 
         <div class="form-floating">
           <div class="field">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i><br />
             <%= f.password_field :current_password, autocomplete: "current-password" %>
           </div>
         </div>
 
         <div class="actions">
-          <%= f.submit "Update", class:"w-100 btn btn-lg btn-primary" %>
+          <%= f.submit "Modifier", class:"w-100 btn btn-lg btn-primary" %>
         </div>
       <% end %>
-      <%= link_to "Back", :back %>
+      <%= link_to "Retour à l'accueil", :back %>
   </main>
 </div>
 
