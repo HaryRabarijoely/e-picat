@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  # after_create :order_confirm_user
-  # after_create :order_confirm_admin
+  after_create :order_confirm_user
+  after_create :order_confirm_admin
   belongs_to :user
   has_and_belongs_to_many :items
 
