@@ -33,13 +33,14 @@ class CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     if create_order
+      flash[:success] = "Votre commande de #{current_user.cart.price} € est validée ! Vous allez recevoir un email de confirmation à #{current_user.email}"
       current_user.cart.items.clear
       current_user.cart.price_update
       redirect_to orders_path
     else
+      flash[:alert] = "Il y a eu problème. Merci de nous contacter en nous fournissant le numéro : #{current_user.cart.id}"
       redirect_to cart_path
     end
-
   end
 
   def cancel
@@ -55,6 +56,5 @@ class CheckoutController < ApplicationController
     order.user = current_user
     cart.items.each { |item| order.items << item }
     order.price = cart.price
-    order.save
   end
 end
