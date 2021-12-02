@@ -1,0 +1,21 @@
+<h2>Modification du produit</h2>
+<%= form_for ([:admin, @item]) do |f| %>
+    
+  <%= label_tag 'Titre' %><br />
+  <%= f.text_field :title %><br />
+
+  <%= label_tag 'Description' %><br />
+  <%= f.text_area :description %><br />
+
+  <%= label_tag 'Prix' %><br />
+  <%= f.text_field :price %><br />
+
+  <button type="submit">Modifier</button>
+  
+<% end %>
+
+<%if @item.picture.attached?%>
+  <%= image_tag @item.picture, alt: @item.title, style: "max-height: 300px" %>
+<%else%>
+  <p>=== Il n'y a pas de photo attachée au produit ===</p>
+<%end%>

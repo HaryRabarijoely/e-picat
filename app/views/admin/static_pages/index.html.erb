@@ -1,0 +1,32 @@
+<h1>Console Administrateur</h1>
+<h3>Ravi de vous revoir <%= current_user.email %> !</h3>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <h1 class="card-title"><%= User.count %></h1>
+        <p class="card-text">Utilisateurs inscrits</p>
+        <%= link_to 'Gestion utilisateurs', admin_users_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <h1 class="card-title"><%= average_cart_amount %> €</h1>
+        <p class="card-text">Panier moyen</p>
+        <%= link_to 'Gestion des commandes', admin_orders_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <h1 class="card-title"><%= Item.count %></h1>
+        <p class="card-text">Articles en vente</p>
+        <%= link_to 'Gestion items en vente', admin_items_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

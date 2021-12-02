@@ -10,7 +10,15 @@ class User < ApplicationRecord
   has_many :orders
   has_many :items, through: :orders
   has_many :items, through: :cart
-  
+    
+  def total_amount_paid
+    total_amount = 0
+    self.orders.each do |order|
+      total_amount += order.price
+    end
+    total_amount
+  end
+
   private
 
   # Assign a new cart for each new user
@@ -21,4 +29,5 @@ class User < ApplicationRecord
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
+
 end
