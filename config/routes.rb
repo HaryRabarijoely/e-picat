@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/Contact'
+  get 'static_pages/Terms'
   root 'items#index' 
   resources :items,:path => "/NFT_cat"
   resources :carts,:path => "/cart", only: [:create, :update, :destroy, :show]
