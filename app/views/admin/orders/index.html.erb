@@ -1,0 +1,26 @@
+<h2>Commandes enregistrées</h2>
+<h5>Recettes totales : <%= total_amount %> €</h5>
+
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Date</th>
+      <th scope="col">Client ID</th>
+      <th scope="col">Nb articles</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+      <tr>
+      <th><%= order.id %></th>
+      <th><%= order.created_at.strftime('%e %b %Y') %></th>
+      <th><%= order.user.id %></th>
+      <th><%= order.items.count %></th>
+      <th><%= order.price %></th>
+      <th><%= link_to 'Afficher', admin_order_path(order), class: 'btn btn-primary btn-sm' %></th>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

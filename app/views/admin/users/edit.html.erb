@@ -1,0 +1,10 @@
+<%= form_for ([:admin, @user]) do |f| %>
+    
+        <%= label_tag 'Adresse mail' %><br />
+        <%= f.text_field :email %><br />
+    
+        <%= label_tag 'Admin' %><br />
+        <%= f.check_box :admin %>
+    
+        <button type="submit">Modifier</button>
+<% end %>
