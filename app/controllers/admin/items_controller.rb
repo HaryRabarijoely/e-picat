@@ -21,13 +21,10 @@ module Admin
     end  
 
     def show
-      @item = Item.find(params:[:id])
+      @item = Item.find(params[:id])
     end
 
     def edit
-      puts "#"*100
-      puts params[:id].to_i
-      puts "#"*100
       @item = Item.find(params[:id])
     end
 

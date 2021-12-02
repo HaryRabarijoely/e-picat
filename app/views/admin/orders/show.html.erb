@@ -1,2 +1,26 @@
-<h1>Affichage de la commande</h1>
-<%= @order.id %>
+<h2>Affichage de la commande n°<%= @order.id %></h2>
+<p>Commande passée le <%= @order.created_at.strftime('%e %b %Y à %H:%M:%S') %><br>
+   ID Client : <%= @order.user.id %><br>
+   Email : <%= @order.user.email %>
+</p>
+<p></p>
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th scope="col">ID Item</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @order.items.each do |item| %>
+      <tr>
+      <th><%= item.id %></th>
+      <th><%= item.title %></th>
+      <th><%= item.price %></th>
+      <th><%= link_to 'Afficher', admin_item_path(item), class: 'btn btn-primary btn-sm' %></th>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+<h4>Total : <%= @order.price %> €</h4>

@@ -1,0 +1,18 @@
+<h2>Item n°<%= @item.id %></h2>
+
+<div class="card" style="width: 20rem;">
+  <%= image_tag @item.picture, alt: @item.title, class: "card-img-top" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @item.title %></h5>
+    <p class="card-text"><%= @item.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Crée le <%= @item.created_at.strftime('%e %b %Y') %></li>
+    <li class="list-group-item">Ventes : <%= @item.orders.count %></li>
+    <li class="list-group-item"><%= @item.price %> €</li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Editer', edit_admin_item_path(@item), class: 'btn btn-primary btn-sm' %></th>
+    <%= link_to 'Supprimer', admin_item_path(@item), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer cet item ?" }, class: 'btn btn-danger btn-sm'%></th>
+  </div>
+</div>

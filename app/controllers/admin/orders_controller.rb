@@ -3,11 +3,11 @@ module Admin
     before_action :is_admin?
 
     def index
-      @orders = Order.order(:id)
+      @orders = Order.order(id: :desc)
     end
 
     def show
-      @order = Order.find(params:[:id])
+      @order = Order.find(params[:id])
     end
    
     private

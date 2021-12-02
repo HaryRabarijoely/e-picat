@@ -1,4 +1,5 @@
 <h2>Commandes enregistrées</h2>
+<h5>Recettes totales : <%= total_amount %> €</h5>
 
 <table class="table table-hover table-sm">
   <thead>
@@ -18,7 +19,7 @@
       <th><%= order.user.id %></th>
       <th><%= order.items.count %></th>
       <th><%= order.price %></th>
-      <th><%= link_to 'Afficher', edit_admin_user_path(user), class: 'btn btn-primary btn-sm' %></th>
+      <th><%= link_to 'Afficher', admin_order_path(order), class: 'btn btn-primary btn-sm' %></th>
     </tr>
   <% end %>
   </tbody>
