@@ -1,17 +1,23 @@
 <h2>Nouveau produit</h2>
 
 <%= form_tag url_for(action: 'create'), multipart: true do %>
-    
-  <%= label_tag 'Titre' %><br />
-  <%= text_field_tag 'title', @item.title %><br />
-
-  <%= label_tag 'Description' %><br />
-  <%= text_field_tag 'description', @item.description %><br />
-
-  <%= label_tag 'Prix' %><br />
-  <%= text_field_tag 'price', @item.price %><br />
-
-  <%= file_field_tag :picture %>
   
-  <%= submit_tag "Envoyer" %>
+  <div class="card text-center" style="width: 22rem;">
+    <div class="card-body">
+
+      <%= label_tag 'Titre' %><br />
+      <%= text_field_tag 'title', @item.title %><br />
+
+      <%= label_tag 'Description' %><br />
+      <%= text_field_tag 'description', @item.description %><br />
+
+      <%= label_tag 'Prix' %><br />
+      <%= text_field_tag 'price', @item.price %><br /><br />
+      
+      <%= label_tag 'Image' %><br />
+      <%= file_field_tag :picture %><br /><br />
+      
+      <%= submit_tag "Envoyer" %>
+    </div>
+  </div>
 <% end %>
