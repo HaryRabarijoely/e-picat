@@ -56,5 +56,6 @@ class CheckoutController < ApplicationController
     order.user = current_user
     cart.items.each { |item| order.items << item }
     order.price = cart.price
+    order.save
   end
 end
