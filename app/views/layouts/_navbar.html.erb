@@ -13,7 +13,7 @@
         </li>
         <!-- / -->
         <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Mon Compte</a>
+          <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Mon Compte</a>
           <div class="dropdown-menu ">
             <% if user_signed_in? %>
               <%= link_to "Mon profil",  edit_user_registration_path(current_user) ,class: "dropdown-item"%>
@@ -31,12 +31,12 @@
               <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
           </div>
            <li class="nav-item">
-          <%= link_to "Qui sommes-nous ?", static_pages_Contact_path, class: "nav-link" %>
+          <%= link_to "Qui sommes-nous ?", static_pages_Contact_path, class: "nav-link active" %>
         </li>
           </li>
             <% end %>
             <% if user_signed_in? && current_user.admin %>
-              <li><%= link_to 'Admin', admin_root_path, class: "btn btn-sm btn-secondary nav-link" %></li>
+              <li><%= link_to 'Admin', admin_root_path, class: "btn btn-sm btn-secondary nav-link active" %></li>
             <% end  %>
       </ul>
     </div>
