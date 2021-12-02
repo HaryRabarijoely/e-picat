@@ -152,7 +152,6 @@ summary {
 body {
     color: #333;
     -webkit-font-smoothing: antialiased;
-    font-family: "Droid Serif", serif;
 }
 
 img {
@@ -205,9 +204,9 @@ img {
 }
 
 .heading h1 {
-    font-family: "Droid Serif", serif;
-    font-size: 2em;
-    float: left;
+    font-family: "Lucida Console", sans-serif;
+    font-size: 2.5em;
+    float: center;
 }
 
 .heading a.continued:link,
