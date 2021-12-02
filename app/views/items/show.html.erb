@@ -19,7 +19,11 @@
             <em><%= @item.description %></em>
             <br>
             <strong><%= @item.price %> <i class="fab fa-bitcoin"></i></strong>
-            <%= link_to "Ajouter à mon panier", cart_path(@item), method: :put, class: "btn btn-outline-primary my-3" %>
+            <% if user_signed_in? %>
+              <%= link_to "Ajouter à mon panier", user_signed_in? ? cart_path(@item) : new_user_session_path, method: :put, class: "btn btn-outline-primary my-3" %>
+            <% else %>
+              <%= link_to "Ajouter à mon panier", new_user_session_path, class: "btn btn-outline-primary my-3" %>
+            <% end %>
         </div>
       </div>
     </div>
