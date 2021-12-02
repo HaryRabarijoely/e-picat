@@ -11,17 +11,19 @@ module Admin
     end
 
     def create
-      @item = Item.create(
+      @item = Item.new(
         title: params[:title],
         description: params[:description],
-        price: params[:price]
+        price: params[:price],
+        available: params[:available]
       )
-      if @item.picture.attach(params[:picture])
+      if @item.save
+        @item.picture.attach(params[:picture])
         flash[:success] = "Le produit a bien été ajouté."
         redirect_to(admin_items_path)
       else
         flash[:warning] = "Il y a eu un problème lors de la création du produit."
-        render 'create'
+        render new_admin_item_path
       end
     end  
 
@@ -63,7 +65,7 @@ module Admin
   
     def is_admin?
       unless user_signed_in? && current_user.admin
-        flash[:danger] = 'Vous n\'avez pas la permission d\'accéder à cette page'
+        flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
         redirect_to root_path
       end
     end
