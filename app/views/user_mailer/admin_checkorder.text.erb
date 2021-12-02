@@ -1,12 +1,12 @@
 
-Voici le rapport de commande :<%= @order.id %>
+Voici le rapport de commande : <%= @order.id %>
 ==========================================================
 
 <% @order.items.each do |item|%>
     <%= item.title %>, <%= item.price %> €, <%= item.image_url %>
 <% end %>
 
-Total: <% @order.price %>
-Status: <%= @payment_intent %>
+Total: <%= @order.price %>
+Status: Finalisé
 
 

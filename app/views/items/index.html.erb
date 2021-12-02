@@ -1,28 +1,20 @@
 <%= render "layouts/banner"%>
 
-
-<main class="container">
-  <div class="row row-cols-4 row-cols-md-3 col-sm-12 p-md-0 m-md-0 d-flex justify-content-center">
-
-    <% @items.each do |item| %>
-      <div class="col-sm-12 col-12 col-md-4">
-        <div class="card border-secondary mb-4 card-index" size="50">
-          <!-- Template à suivre pour afficher les images des produits -->
-          <%if item.picture.attached?%>
-            <%= image_tag item.picture, alt: item.title, class: "card-img-top", height: "500" %>
-          <%else%>
-            <p>=== Il n'y a pas de photo attachée au produit ===</p>
-          <%end%>
-          <!-- ////////// -->
-          <div class="card-body">
-            <h4 class="card-title"><%=item.title%></h4>
-
-            <p class="card-text">Prix : <%=item.price%>€</p>
-            <a><%= link_to "Details", item_path(item.id), class: "btn btn-primary" %></a>
-          </div>
+<div class="container mt-5">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @items.each do |item| %>
+  <div class="col">
+    <a href="<%= item_path(item) %>">
+    <div class="card bg-dark text-white text-decoration-none shadow">
+      <%= image_tag item.picture, alt: item.title, class: "card-img img-index img-fluid" %>
+      <div class="card-img-overlay text-center">
+        <div class="btn btn-outline-alert btn-lg position-absolute bottom-0 start-50 translate-middle-x fw-bolder">
+          <%= "#{item.price} €"%> <i class="fas fa-info-circle"></i>
         </div>
       </div>
-    <% end %>
+    </div>
+    </a>
   </div>
-
-</main>
+  <% end %>
+</div>
+</div>
