@@ -3,10 +3,10 @@ Merci pour ta commande <%= @order.user.email %>
 ==========================================================
 
 <% @order.items.each do |item|%>
-    <%= item.title %>, <%= item.price %> €, <%= image_tag item.picture %>
+    <%= item.title %>, <%= item.price %> €, <%= item.image_url %>
 <% end %>
 
-Total: <% @order.price %>
+Total: <%= @order.price %>
 À très vite sur e-PiCat  ! 
 
 

@@ -4,10 +4,10 @@
     <% @order.items.each do |item|%>
         <li><%= item.title %>,
             <%= item.price %> €,
-            <%= image_tag item.picture %>
+            <%= item.image_url %>
         </li>
     <% end %>
 </ul>
 
-<P>Total: <% @order.price %></P>
+<P>Total: <%= @order.price %></P>
 <p> À très vite sur e-PiCat  ! 
