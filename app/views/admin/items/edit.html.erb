@@ -5,22 +5,22 @@
   <div class="card text-center" style="width: 22rem;">
     <%= image_tag @item.picture, alt: @item.title, class: "card-img-top" %>
     <div class="card-body">
-    <%= label_tag 'Titre' %><br />
-    <%= f.text_field :title %><br />
+      <%= label_tag 'Titre' %><br />
+      <%= f.text_field :title %><br />
 
-    <%= label_tag 'Description' %><br />
-    <%= f.text_area :description %><br />
+      <%= label_tag 'Description' %><br />
+      <%= f.text_area :description %><br />
 
-    <%= label_tag 'Prix (en €)' %><br />
-    <%= f.text_field :price %><br />
+      <%= label_tag 'Prix (en €)' %><br />
+      <%= f.text_field :price %><br />
 
-    <%= label_tag "Modifier l'image" %><br />
-    <%= f.file_field :picture %><br />
+      <%= label_tag "Modifier l'image" %><br />
+      <%= f.file_field :picture %><br />
 
-    <%= label_tag 'Dispo à la vente : ' %>
-    <%= f.check_box :available %><br />
+      <%= label_tag 'Dispo à la vente : ' %>
+      <%= f.check_box :available %><br />
 
-    <button type="submit" class="btn btn-primary mt-3">Modifier</button>
+      <button type="submit" class="btn btn-primary mt-3">Modifier</button>
 
     </div>
   </div>

@@ -1,28 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
 
-#########################################
-#########################################
-# Fonctions à supprimer quand le 
-# dashboard admin sera fini
-# Ainsi que /app/views/new.html.erb
-
-  def new
-    @item = Item.new
-  end
-  
-  def create
-    @item = Item.create(
-      title: params[:title],
-      description: params[:description],
-      price: params[:price]
-    )
-    @item.picture.attach(params[:picture])
-    redirect_to(item_path(@item))
-  end  
-#########################################
-#########################################
-
   # GET /items or /items.json
   def index
     @items = Item.where(available: true)
@@ -42,4 +20,5 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:title, :description, :price)
     end
+    
 end

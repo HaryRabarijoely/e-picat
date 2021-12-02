@@ -1,20 +1,20 @@
 <%= render "layouts/banner"%>
 
 <div class="container mt-5">
-<div class="row row-cols-1 row-cols-md-3 g-4">
+ <div class="row row-cols-1 row-cols-md-3 g-4">
   <% @items.each do |item| %>
-  <div class="col">
+   <div class="col">
     <a href="<%= item_path(item) %>">
-    <div class="card bg-dark text-white text-decoration-none shadow">
+     <div class="card bg-dark text-white text-decoration-none shadow">
       <%= image_tag item.picture, alt: item.title, class: "card-img img-index img-fluid" %>
       <div class="card-img-overlay text-center">
         <div class="btn btn-outline-alert btn-lg position-absolute bottom-0 start-50 translate-middle-x fw-bolder">
           <%= "#{item.price} €"%> <i class="fas fa-info-circle"></i>
         </div>
       </div>
-    </div>
+     </div>
     </a>
-  </div>
+   </div>
   <% end %>
-</div>
+ </div>
 </div>
