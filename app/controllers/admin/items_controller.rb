@@ -16,8 +16,13 @@ module Admin
         description: params[:description],
         price: params[:price]
       )
-      @item.picture.attach(params[:picture])
-      redirect_to(admin_items_path)
+      if @item.picture.attach(params[:picture])
+        flash[:success] = "Le produit a bien été ajouté."
+        redirect_to(admin_items_path)
+      else
+        flash[:warning] = "Il y a eu un problème lors de la création du produit."
+        render 'create'
+      end
     end  
 
     def show
@@ -31,10 +36,10 @@ module Admin
     def update
       @item = Item.find(params[:id])
         if @item.update!(item_params)
-          flash[:success] = "L\'item a bien été mis à jour."
+          flash[:success] = "Le produit a bien été mis à jour."
           redirect_to admin_items_path
         else
-          flash[:warning] = "Something went wrong"
+          flash[:warning] = "Il y a eu un problème lors de la mise à jour du produit"
           render 'edit'
         end
     end
@@ -42,10 +47,10 @@ module Admin
     def destroy
       @item = Item.find(params[:id])
       if @item.destroy
-        flash[:success] = 'L\'item a bien été supprimé.'
+        flash[:success] = "Le produit a bien été supprimé."
         redirect_to admin_items_path
       else
-        flash[:warning] = 'Something went wrong'
+        flash[:warning] = "Il y a eu un problème lors de la suppression"
         redirect_to admin_items_path
       end
     end
@@ -53,7 +58,7 @@ module Admin
     private
 
     def item_params
-      params.require(:item).permit(:title, :description, :price, :picture)
+      params.require(:item).permit(:title, :description, :price, :picture, :available)
     end
   
     def is_admin?
