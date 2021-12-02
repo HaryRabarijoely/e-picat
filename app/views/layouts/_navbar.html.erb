@@ -1,24 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <%= link_to "e-PiCat", items_path, class: "navbar-brand" %>
+  
+    <%= link_to "e-PiCat", items_path, class: "navbar-brand" %> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <i class="fas fa-cat"></i>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <%= link_to "Tous les produits", items_path, class: "nav-link active" %>
-        </li>
-        <!-- TODO : Change the path of this "About" page -->
-        <li class="nav-item">
-          <%= link_to "À propos de nous", static_pages_Contact_path, class: "nav-link" %>
+          <%= link_to "Catalogue", items_path, class: "nav-link active"%>
         </li>
         <!-- / -->
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compte</a>
-          <div class="dropdown-menu">
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Mon Compte</a>
+          <div class="dropdown-menu ">
             <% if user_signed_in? %>
               <%= link_to "Mon profil",  edit_user_registration_path(current_user) ,class: "dropdown-item"%>
               <%= link_to "Mes commandes", orders_path(current_user) ,class: "dropdown-item"%>
@@ -30,14 +26,17 @@
             <a class="nav-link" href="<%= cart_path(current_user) %>"><i class="fas fa-shopping-basket"></i> Mon panier</a>
           </li>
             <% else %>
-              <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item btn-secondary" %>
               <div class="dropdown-divider"></div>
               <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
           </div>
+           <li class="nav-item">
+          <%= link_to "Qui sommes-nous ?", static_pages_Contact_path, class: "nav-link" %>
+        </li>
           </li>
             <% end %>
             <% if user_signed_in? && current_user.admin %>
-              <li><%= link_to 'Accès console administrateur', admin_root_path, class: "btn btn-sm btn-outline-danger me-2 nav-link" %></li>
+              <li><%= link_to 'Admin', admin_root_path, class: "btn btn-sm btn-secondary nav-link" %></li>
             <% end  %>
       </ul>
     </div>

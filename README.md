@@ -21,7 +21,10 @@ _Pour le projet, vous allez créer une boutique en ligne, pour un magasin de pho
 # Accéder à l'application en production
   https://epicathp.herokuapp.com/
 
-
+# Profil admin
+      profile : adminepicat@yopmail.com
+      
+      mdp: adminadmin
 
 
 # Auteur
