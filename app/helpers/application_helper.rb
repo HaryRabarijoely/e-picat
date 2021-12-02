@@ -11,5 +11,9 @@ module ApplicationHelper
     Order.all.each { |order| total_amount += order.price }
     total_amount.round(2)
   end
+
+  def current_user_orders
+    current_user.orders
+  end
   
 end

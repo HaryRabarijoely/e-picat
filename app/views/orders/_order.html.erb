@@ -1,14 +1,14 @@
 
-<div class="card-body p-4 p-md-5  border-success">
+<div class="card-body p-4 p-md-5">
   <h2>Mes précédente commandes</h2>
-  <% @orders.each do |order|%>
+  <% current_user_orders.each do |order|%>
     <div class="d-flex flex-wrap justify-content-between align-items-center py-3 px-4 mt-3">
       <div class="d-flex flex-column" >
-        <p>Order ID: <strong><%= order.id%></strong> &nbsp;</p>
-        <p><small class="text-muted">Order Date:</small> <strong><%= order.created_at.strftime('Le %e %b %Y') %></strong></p>
+        <p>Numéro de commande: <strong><%= order.id%></strong> &nbsp;</p>
+        <p><small class="text-muted">Date de commande:</small> <strong><%= order.created_at.strftime('Le %e %b %Y') %></strong></p>
       </div>
       <div class="d-flex align-items-center">
-        Status:&nbsp; <strong>Complete</strong>
+        Statut:&nbsp; <strong>Complet</strong>
         <a data-toggle="collapse" href="#order-4153148974124" class="d-block ml-3" aria-expanded="true"><i class="collapse-icon"></i></a>
       </div>
     </div>
@@ -32,7 +32,7 @@
           <tfoot>
             <tr>
               <th colspan="3" class="text-right px-4">
-                <div style="font-size:20px;border-bottom:1px solid;"><small class="text-muted">Total price:</small> <strong><%= order.price%> <i class="fas fa-euro-sign"></i></strong></div> <!-- PRIX TOTAL -->
+                <div style="font-size:20px;border-bottom:1px solid;"><small class="text-muted">Prix total:</small> <strong><%= order.price%> <i class="fas fa-euro-sign"></i></strong></div> <!-- PRIX TOTAL -->
               </th>
             </tr>
           </tfoot>
