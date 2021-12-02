@@ -21,13 +21,13 @@ module Admin
 
     def update
       @user = User.find(params[:id])
-        if @user.update!(user_params)
-          flash[:success] = "L'utilisateur a bien été mis à jour."
-          redirect_to admin_users_path
-        else
-          flash[:warning] = "Il y a eu un problème lors de la mise à jour de l'utilisateur"
-          render 'edit'
-        end
+      if @user.update!(user_params)
+        flash[:success] = "L'utilisateur a bien été mis à jour."
+        redirect_to admin_users_path
+      else
+        flash[:warning] = "Il y a eu un problème lors de la mise à jour de l'utilisateur"
+        render 'edit'
+      end
     end
     
     def destroy

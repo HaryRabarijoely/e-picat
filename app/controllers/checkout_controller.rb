@@ -4,8 +4,6 @@ class CheckoutController < ApplicationController
      @cart = Cart.find(params[:cart_id])
   end
   
-
-  
   def create
     @user = current_user
     @total = params[:total].to_d

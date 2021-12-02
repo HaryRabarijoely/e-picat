@@ -1,9 +1,8 @@
 <h2>Affichage de la commande n°<%= @order.id %></h2>
-<p>Commande passée le <%= @order.created_at.strftime('%e %b %Y à %H:%M:%S') %><br>
-   ID Client : <%= @order.user.id %><br>
-   Email : <%= @order.user.email %>
-</p>
-<p></p>
+  <p>Commande passée le <%= @order.created_at.strftime('%e %b %Y à %H:%M:%S') %><br>
+    ID Client : <%= @order.user.id %><br>
+    Email : <%= @order.user.email %>
+  </p>
 <table class="table table-hover table-sm">
   <thead>
     <tr>
@@ -14,7 +13,7 @@
   </thead>
   <tbody>
       <% @order.items.each do |item| %>
-      <tr>
+    <tr>
       <th><%= item.id %></th>
       <th><%= item.title %></th>
       <th><%= item.price %></th>
