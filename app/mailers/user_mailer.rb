@@ -4,9 +4,6 @@ class UserMailer < ApplicationMailer
   def welcome_email(user)
     @user = user 
     @url  = 'https://epicat-thp.herokuapp.com/profile/sign_in' 
-    attachments["#{user.email}"] = Item.first.picture
-    puts "#"*100
-    puts attachments.count
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
 
